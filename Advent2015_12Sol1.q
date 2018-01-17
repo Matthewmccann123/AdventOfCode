@@ -1,1 +1,0 @@
-sum "I"$"," vs(raze read0`:inp12.q) except .Q.a,"[{}]:\""
