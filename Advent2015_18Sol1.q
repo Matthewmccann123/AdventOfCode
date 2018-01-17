@@ -1,2 +1,0 @@
-show sum "#"=raze {100 cut {$["."=.[x;y]; $[3=sum "#"=.[x;] each y+/:srnd;"#";"."]    ;$[any (2 3) in sum "#"=.[x;] each y+/:srnd;"#";"."]]}[x;] each (til 100) cross til 100}/[100;test:read0`:inp18.q]
-show sum "#"=raze {t:100 cut {$["."=.[x;y]; $[3=sum "#"=.[x;] each y+/:srnd;"#";"."]    ;$[any (2 3) in sum "#"=.[x;] each y+/:srnd;"#";"."]]}[x;] each (t cross t:til 100);{(.[x[0];first x[1];:;"#"];1_x[1])}/[4;(t;(0 0;0 99;99 0;99 99))][0]}/[100;{(.[x[0];first x[1];:;"#"];1_x[1])}/[4;(read0`:inp18.q;(0 0;0 99;99 0;99 99))][0]]
