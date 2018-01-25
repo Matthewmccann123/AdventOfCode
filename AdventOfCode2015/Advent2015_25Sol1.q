@@ -1,0 +1,1 @@
+((flip t[;til count t:raze'[reverse'[(sums til 6000)cut{mod[x*252533]33554393}\[20000000;20151125]]]]) except\:0N)[2946;3028]
