@@ -1,0 +1,1 @@
+1_where all each(raze (1#where 1<count each group nums)) =/: nums:{idx:x?c:max x;nm:c#1;x[x?c]:0;t:{(lst:x[0];nm:x[1];idx:x[2]);lst:1 rotate lst;lst[idx]+:nm[0];(lst;1_nm;idx)}/[c;(x;nm;idx)];(cx-c mod cx:count x) rotate t[0]}\[8000;raze`long$"I"${"\t"vs x}'[raze'[read0`:inp6.q]]]

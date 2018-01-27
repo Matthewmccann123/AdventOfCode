@@ -1,0 +1,19 @@
+	//input
+		l:(trim'[" if " vs/: read0`:inp8.q]) ;
+		//defining inputs to 0
+		{@[`.;`$x;:;0]}'[asc distinct raze (" " vs/: read0`:inp8.q)[;0 4]];
+		
+		//defining dct
+		dct:(0 1)!(`dec;`inc);
+		
+		//increment decrementer for ">" 
+        f1:{e:(" " vs x[1])[0 2];if[x[1] like "* > *";if[(value trim e[0])>"J"$e[1];g:trim each g[p:where 1<count'[g:("dec";"inc") vs\: x[0]]];@[`.;`$g[0][0];:;$[`inc=first dct p;(value g[0][0])+"J"$g[0][1];(value g[0][0])-"J"$g[0][1]]]]]};
+		f2:{e:(" " vs x[1])[0 2];if[x[1] like "*>=*";if[(value trim e[0])>="J"$e[1];g:trim each g[p:where 1<count'[g:("dec";"inc") vs\: x[0]]];@[`.;`$g[0][0];:;$[`inc=first dct p;(value g[0][0])+"J"$g[0][1];(value g[0][0])-"J"$g[0][1]]]]]};
+		f3:{e:(" " vs x[1])[0 2];if[x[1] like "* < *";if[(value trim e[0])<"J"$e[1];g:trim each g[p:where 1<count'[g:("dec";"inc") vs\: x[0]]];@[`.;`$g[0][0];:;$[`inc=first dct p;(value g[0][0])+"J"$g[0][1];(value g[0][0])-"J"$g[0][1]]]]]};
+		f4:{e:(" " vs x[1])[0 2];if[x[1] like "*<=*";if[(value trim e[0])<="J"$e[1];g:trim each g[p:where 1<count'[g:("dec";"inc") vs\: x[0]]];@[`.;`$g[0][0];:;$[`inc=first dct p;(value g[0][0])+"J"$g[0][1];(value g[0][0])-"J"$g[0][1]]]]]};
+		f5:{e:(" " vs x[1])[0 2];if[x[1] like "*==*";if[(value trim e[0])="J"$e[1];g:trim each g[p:where 1<count'[g:("dec";"inc") vs\: x[0]]];@[`.;`$g[0][0];:;$[`inc=first dct p;(value g[0][0])+"J"$g[0][1];(value g[0][0])-"J"$g[0][1]]]]]};
+		f6:{e:(" " vs x[1])[0 2];if[x[1] like "*!=*";if[not (value trim e[0])="J"$e[1];g:trim each g[p:where 1<count'[g:("dec";"inc") vs\: x[0]]];@[`.;`$g[0][0];:;$[`inc=first dct p;(value g[0][0])+"J"$g[0][1];(value g[0][0])-"J"$g[0][1]]]]]};
+		
+		{(f1;f2;f3;f4;f5;f6)@\:x} each l
+
+		value each (distinct (system"v") except (`dct;`l))
