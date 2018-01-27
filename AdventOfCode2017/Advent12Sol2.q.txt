@@ -1,0 +1,4 @@
+l:"<->" vs/: read0`:inp11.q;
+dict:("I"$l[;0])!"J"$ "," vs/: l[;1]
+g1:distinct first {cdist:x[0];nextn:x[1];cdist,:distinct raze dict'[nextn];nextn:(raze(dict'[nextn])) except x[0];(cdist;nextn) }/[1000;(enlist 0;0)]
+1+ first{nm:x[0];cr:x[1];(nm+:1;cr except distinct first {cdist:x[0];nextn:x[1];cdist,:distinct raze dict'[nextn];nextn:(raze(dict'[nextn])) except x[0];(cdist;nextn) }/[1000;(enlist nm;first cr)])}/[170;(0;(key dict) except g1)]
