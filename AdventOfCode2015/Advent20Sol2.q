@@ -1,0 +1,1 @@
+1 + first where 29000000<={11*sum t where[x<=50*/:t:distinct t,distinct x div t:1 + where (0=x mod 1+til ceiling sqrt[x])]} each 1 + til 800000

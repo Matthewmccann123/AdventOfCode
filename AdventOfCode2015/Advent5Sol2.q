@@ -1,0 +1,1 @@
+sum{a:any 1<count'[(4#'.Q.a)vs\:x]; b:(count distinct t)<count t[where differ t:raze flip $[1=mod[count x]2;(-1_2 cut x;2 cut 1_x);(2 cut x;2 cut 1_x)]]; c1:a|b;c2:((0b in differ(2 cut x)[;0])or(0b in differ (2 cut x)[;1]));c1 and c2} each read0`:inp5.q
