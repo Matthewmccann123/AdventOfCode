@@ -1,0 +1,3 @@
+sum first {list:x[0]; idx:x[1]; state:x[2]; cur:list[idx]; if[state="A";if[cur=0;list[idx]:1;:(list;idx+1;"B")];if[cur=1;list[idx]:0;:(list;idx+1;"C")]]; if[state="B"; if[cur=0; list[idx]:0; :(list;idx-1;"A")];if[cur=1; list[idx
+]:0;:(list;idx+1;"D")]]; if[state="C";list[idx]:1;:(list;idx+1;$[cur=0;"D";"A"])]; if[state="D";idx-:1;if[cur=0;list[x 1]:1;:(list;idx;"E")]; if[cur=1;list[x 1]:0; :(list;idx;"D")]]; if[state="E";list[idx]:1;:$[cur=0;(list;idx+1;"
+F");(list;idx-1;"B")]]; if[state="F";list[idx]:1; idx+:1;:(list;idx;$[cur=0;"A";"E"])]}/[12368930;(100000#0;50000;"A")]
