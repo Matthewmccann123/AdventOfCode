@@ -1,9 +1,5 @@
 inp:read0`:AdventOfCode2015/inp7.q;
-inp[t]:ssr[;"aj";"zz"]'[inp t:where inp like "*aj*"];  //workaround for keywords in kdb .. 
-inp[t]:ssr[;"ej";"yy"]'[inp t:where inp like "*ej*"];
-inp[t]:ssr[;"ij";"xx"]'[inp t:where inp like "*ij*"];
-inp[t]:ssr[;"in";"uu"]'[inp t:where inp like "*in*"];
-inp[t]:ssr[;"lj";"rr"]'[inp t:where inp like "*lj*"];
+{inp[t]:ssr[;x[0];x[1]]'[inp t:where inp like "*",x[0],"*"]}'[(("aj";"zz");("ej";"yy");("ij";"xx");("in";"uu");("lj";"rr"))];  //predfined kdb variables causing issues, modifying input.
 ASSIGN:{[input]@[`.;`$t[1];:;value (t:"->"vs input)[0]];0b};
 AND:{[input] @[`.;`$t[1];:;0b sv (and). 0b vs/:value'["AND" vs (t:"->" vs input)[0]]];0b};
 OR:{[input] @[`.;`$t[1];:;0b sv (or). 0b vs/:value'["OR" vs (t:"->" vs input)[0]]];0b};
@@ -14,9 +10,10 @@ dict:0 1 2 3 4!(AND;OR;LSHIFT;RSHIFT;NOT);
 {[inp] inp:inp except inp where not  {c:where x like/:("*AND*";"*OR*";"*LSHIFT*";"*RSHIFT*";"*NOT*");$[c~`long$();@[ASSIGN;x;1b];@[(dict raze c)[0];x;1b]] } each inp;inp}/[{0<count x};inp]
 show a;
 
-![`.;();0b;]'[enlist each system["v"]except `inp`dict];
-b:956;
-inp[89]:"956 -> b";
+
+
+inp[89]:raze (string a)," -> b";
+![`.;();0b;]'[enlist each system["v"]except `inp`dict];  //remove other vars from namespace.
 {[inp] inp:inp except inp where not  {c:where x like/:("*AND*";"*OR*";"*LSHIFT*";"*RSHIFT*";"*NOT*");$[c~`long$();@[ASSIGN;x;1b];@[(dict raze c)[0];x;1b]] } each inp;inp}/[{0<count x};inp];
 show a;
 
